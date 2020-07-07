@@ -1,0 +1,18 @@
+name: Base E713
+info: Some meaningfull info
+version: 1.0
+
+registers:
+  control:
+    info: "Global Control"
+    address: { page: 0x41200, offset: 0, width: 4, io: "w"}
+    masks:
+      0x0001: {label: "global reset", info: "also asserts 0x02 and 0x04"}
+      0x0002: {label: "PID reset", info: "also asserted by 0x01"}
+      0x0004: {label: "trigger", reset: "auto"}
+
+fifos:
+  sensor_1:
+    info: "Som cool sensor data stream"
+    address: { page: 0x41200, offset: 4, width: 4, io: "r"}
+    depth: 1024
