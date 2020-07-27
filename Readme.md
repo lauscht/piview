@@ -1,9 +1,11 @@
 # E713 - PyView
 
+A FPGA block overview using a Flask Banckend and an angular frontend.
+Before Running the application please make sure your prereqs are fulfilled as described in the Setup section.
 
 ## Run
 
-1. Run the flask backend with your config
+- Run the flask backend with your config
 
     python -m piView.serve example/config.yml
 
@@ -11,7 +13,12 @@ For debuging environment use the -debug flag
 
     python -m piView.serve example/config.yml -debug
 
-2. Serve the frontend.
+- Serve the Angular frontend.
+
+    cd frontend
+    ng serve
+
+
 
 ## Setup
 
