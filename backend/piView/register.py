@@ -8,6 +8,7 @@ class IODir(Enum):
     w = 'writeonly'
     rw = 'rw'
 
+
 class Reset(Enum):
     no = 'no'
     auto = 'auto'
@@ -24,6 +25,7 @@ class Mask:
     def __call__(self, register):
         return (register & self.mask) == self.mask
 
+    @staticmethod
     def factory(bit, label, info="", reset=Reset.no, **kwargs):
         bit = int(bit)
         reset = reset if isinstance(reset, Reset) else Reset[reset]
@@ -35,13 +37,15 @@ class Mask:
     def __str__(self):
         return yaml.dump([self])
 
+
 class Address:
     def __init__(self, page, offset, width=4, io=IODir.r):
         self.page = page
         self.width = width
         self.offset = offset
         self.io = io
-    
+
+    @staticmethod
     def factory(page, offset, width=4, io=IODir.r, **kwargs):
         page = int(page)
         width = int(width)
@@ -76,6 +80,7 @@ class Register:
 
     def __str__(self):
         return yaml.dump([self])
+
 
 class Fifo:
     def __init__(self, address, depth, info=""):

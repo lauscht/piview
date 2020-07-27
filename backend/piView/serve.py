@@ -1,21 +1,29 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
 
-app = Flask(__name__)
+from piView.loader import Loader, JSONEncoder, example
+
+block = Loader.load(example)
+
+app = Flask("piView.serve")
 api = Api(app)
+app.config['RESTFUL_JSON'] = {'cls':JSONEncoder}
 
-registers = dict()
+blocks = dict(main=block)
 
-class Registers(Resource):
 
-    def get(self, name):
-        return {name: registers[name]}
+class Blocks(Resource):
 
-    def put(self, name):
-        registers[name] = request.form['data']
-        return {name: registers[name]}
+    def get(self, name=None):
+        if name is None:
+            return blocks
 
-api.add_resource(TodoSimple, '/<string:todo_id>')
+        block = blocks.get(name)
+        return {name: block}
+
+
+api.add_resource(Blocks, '/block/<string:name>')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
