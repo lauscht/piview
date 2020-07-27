@@ -3,6 +3,16 @@
 
 ## Run
 
+1. Run the flask backend with your config
+
+    python -m piView.serve example/config.yml
+
+For debuging environment use the -debug flag
+
+    python -m piView.serve example/config.yml -debug
+
+2. Serve the frontend.
+
 ## Setup
 
 This package uses venv module.
@@ -39,3 +49,10 @@ We make use of setuptools in the `setup.py`
 For developers consider running. The `--user` flag has to be ommited when installing in (venv)
 
     python setup.py develop --user
+
+
+## Test
+
+In order to test the Backend use pythons unittests
+
+    python -m unittest discover backend/Test Test*.py

@@ -8,6 +8,7 @@ example = os.path.dirname(__file__)
 example = os.path.join(example, '../../example/config.yml')
 example = os.path.abspath(example)
 
+
 class Loader:
 
     @staticmethod
@@ -16,6 +17,7 @@ class Loader:
         parsed_file = yaml.load(handle, Loader=yaml.FullLoader)
 
         return Block.factory(**parsed_file)
+
 
 custom_types = (Block, Mask, Register, Fifo)
 json_types = (float, int, str, dict, list)
