@@ -11,7 +11,7 @@ import { Block } from "./block.model";
 export class AppComponent implements  OnInit, OnDestroy {
   title = 'piView';
   blockSubscription: Subscription;
-  blocks: Block[];
+  blocks: Block[] = [];
 
   constructor(private blockService: BlockService) {
   }

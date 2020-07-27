@@ -19,7 +19,7 @@ blocks = dict()
 class Blocks(Resource):
 
     def get(self, ):
-        return blocks
+        return list(blocks.values())
 
 
 class Block(Resource):
@@ -28,7 +28,7 @@ class Block(Resource):
         assert name in blocks
 
         block = blocks.get(name)
-        return {name: block}
+        return block
 
 
 api.add_resource(Block, '/block/<string:name>')
