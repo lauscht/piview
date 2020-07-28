@@ -1,3 +1,26 @@
-<h4>{{name}}</h4>
-<p>{{register.info}}</p>
-<p>{{register.address}}</p>
+
+<h4 class="card-title">
+    {{register.address}}
+    {{name}}
+    <small class="text-muted">{{register.info}}</small>
+</h4>
+<div class="input-group input-group-sm">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Value</span>
+  </div>
+  <input class="form-control" type="text" [value]="register.value"
+         placeholder="Value" aria-label="Value">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary"
+    (click)="reset()">default: {{register.default_value}}</button>
+  </div>
+</div>
+<ul>
+  <li *ngFor="let mask of register.masks">
+    <h5>
+      0x{{mask.bit.toString(16)}}: {{mask.label}}
+      <span *ngIf="isAuto(mask)" class="badge badge-primary">auto-reset</span>
+    </h5>
+    <small class="text-muted">{{mask.info}}</small>
+  </li>
+</ul>

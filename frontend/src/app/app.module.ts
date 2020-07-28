@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { BlockService } from "./block.service";
 import { RegisterComponent } from './register/register.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RegisterComponent } from './register/register.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [ BlockService ],
   bootstrap: [ AppComponent ]
