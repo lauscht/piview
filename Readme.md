@@ -18,7 +18,8 @@ For debuging environment use the -debug flag
     cd frontend
     ng serve
 
-
+Your local page should the look like
+![the frontend example](example/frontend.png)
 
 ## Setup
 
