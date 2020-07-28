@@ -6,13 +6,27 @@ registers:
   control:
     info: "Global Control"
     address: { page: 0x41200, offset: 0, width: 4, io: "w"}
+    value: 0x0001
+    default_value: 0
     masks:
       0x0001: {label: "global reset", info: "also asserts 0x02 and 0x04"}
       0x0002: {label: "PID reset", info: "also asserted by 0x01"}
-      0x0004: {label: "trigger", reset: "auto"}
+      0x0008: {label: "trigger", info: "External trigger", reset: "auto"}
+
+  uint32:
+    info: "example for a uint32_t"
+    address: { page: 0x41200, offset: 4, width: 4, io: "rw"}
+    value: 0
+    default_value: 42
+
+  float32:
+    info: "Example for a float32_t"
+    address: { page: 0x41200, offset: 8, width: 4, io: "rw"}
+    value: 0.1
+    default_value: 0.5
 
 fifos:
   sensor_1:
-    info: "Som cool sensor data stream"
+    info: "Some cool sensor data stream"
     address: { page: 0x41200, offset: 4, width: 4, io: "r"}
     depth: 1024

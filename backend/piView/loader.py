@@ -1,6 +1,6 @@
 import os
 import yaml
-from piView.register import Register, Mask, Fifo
+from piView.register import Register, Mask, Fifo, IODir, Reset
 from piView.layout import Block
 from flask.json import JSONEncoder as FlaskJSONEncoder
 
@@ -20,8 +20,9 @@ class Loader:
 
 
 custom_types = (Block, Mask, Register, Fifo)
+enum_types = (IODir, Reset)
 json_types = (float, int, str, dict, list)
-all_types = custom_types + json_types
+all_types = custom_types + json_types + enum_types
 
 
 class JSONEncoder(FlaskJSONEncoder):
@@ -38,6 +39,8 @@ class JSONEncoder(FlaskJSONEncoder):
                 data[key] = value
 
             return data
+        elif isinstance(o, enum_types):
+            return str(o.name)
 
         return FlaskJSONEncoder.default(self, o)
 

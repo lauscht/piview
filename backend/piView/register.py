@@ -60,23 +60,25 @@ class Address:
 
 
 class Register:
-    def __init__(self, address, masks=None, info=""):
+    def __init__(self, address, masks=None, info="", value=None, default_value=None):
         self.address = address
         self.masks = masks or []
         self.info = info
+        self.value = value
+        self.default_value = default_value
 
     def get_active_label(self, state):
         return [mask.label for mask in self.masks if mask(state)]
 
     @staticmethod
-    def factory(address, masks=None, info="", **kwargs):
+    def factory(address, masks=None, info="",value=None, default_value=None, **kwargs):
         address = address if isinstance(address, Address) else Address.factory(**address)
 
         masks = masks or {}
         masks = [m if isinstance(m, Mask) else Mask.factory(bit, **m) for bit, m in masks.items()]
         if kwargs:
             logging.warning('Register: Unexpected kwargs %s', kwargs.keys())
-        return Register(address=address, masks=masks, info=info)
+        return Register(address=address, masks=masks, info=info, value=value, default_value=default_value)
 
     def __str__(self):
         return yaml.dump([self])
