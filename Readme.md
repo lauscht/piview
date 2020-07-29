@@ -1,4 +1,4 @@
-# E713 - PyView
+# FPGA BlockDesign - PyView
 
 A FPGA block overview using a Flask Banckend and an angular frontend.
 Before Running the application please make sure your prereqs are fulfilled as described in the Setup section.
