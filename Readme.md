@@ -78,7 +78,7 @@ python setup.py develop --user
 - First install [NodeJs](https://nodejs.org/)
 - Then add [angular cli](https://cli.angular.io/)
   ```shell
-  npm install -g @angular/clo
+  npm install -g @angular/cli
   ```
 
 ### Test
