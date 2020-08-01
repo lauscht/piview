@@ -10,18 +10,20 @@ The `frontend` folder is a [angular](https://angular.io) app, that visualizes th
 ## Run
 
 - Run the flask backend with your config
-
-    `python -m piView.serve example/config.yml`
+  ```shell
+  python -m piView.serve example/config.yml
+  ```
 
   For debuging environment use the -debug flag
-
-    `python -m piView.serve example/config.yml -debug`
+  ```shell
+  python -m piView.serve example/config.yml -debug
+  ```
 
 - Serve the Angular frontend.
-
-`    cd frontend;`
-`    ng serve`
-
+  ```shell
+  cd frontend
+  ng serve
+  ```
 
 Your local page should the look like this
 ![the frontend example](example/frontend.png)
@@ -29,52 +31,59 @@ Your local page should the look like this
 ## Setup
 
 This package uses venv module.
+```shell
+python -m venv .venv
+```
 
-    python -m venv .venv
+To activate the environment using PowerShell
+```powershell
+# optionally allow remote signed scripts for current user
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-To acrivate the environment using PowerShell
-
-    # optionally allo remote signed scripts for current user
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-
-    .venv/Scripts/Activate.ps1
+.venv/Scripts/Activate.ps1
+```
 
 ### Requirements
 
 #### Backend
-
 Install anything you need to your newly created environment
-
-    pip install -r requirements.txt
+```shell
+pip install -r requirements.txt
+```
 
 Adding Packages can ba done via pip.
-
-    pip install <some_package>
+```shell
+pip install <some_package>
+```
 
 Requirements might be frozen to document dependencies.
-
-    pip freeze > requirements.txt
+```shell
+pip freeze > requirements.txt
+```
 
 ##### Install PiView
-
 We make use of setuptools in the `setup.py`
-
-    python setup.py install
+```shell
+python setup.py install
+```
 
 For developers consider running. The `--user` flag has to be ommited when installing in (venv)
-
-    python setup.py develop --user
+```shell
+python setup.py develop --user
+```
 
 ### Frontend
 
 
 - First install [NodeJs](https://nodejs.org/)
 - Then add [angular cli](https://cli.angular.io/)
-
-    `npm install -g @angular/clo`
+  ```shell
+  npm install -g @angular/clo
+  ```
 
 ### Test
 
 In order to test the Backend use pythons unittests
-
-    python -m unittest discover backend/Test Test*.py
+```shell
+python -m unittest discover backend/Test Test*.py
+```
