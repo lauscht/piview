@@ -74,8 +74,13 @@ python setup.py develop --user
 
 ### Frontend
 
-
-- First install [NodeJs](https://nodejs.org/)
+- First install [NodeJs](https://nodejs.org/) (e.g. on a ubuntu based environment following https://github.com/nodesource/distributions/blob/master/README.md)
+  ```shell
+  sudo apt update
+  # add PPA for latest LTS version
+  curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+  sudo apt install nodejs
+  ```
 - Then add [angular cli](https://cli.angular.io/)
   ```shell
   npm install -g @angular/cli
