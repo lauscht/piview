@@ -5,7 +5,7 @@ Before Running the application please make sure your prereqs are fulfilled as de
 
 ### Structure
 Within the `backend` folder contains a python project, serving a [flask_restful](https://flask-restful.readthedocs.io/en/latest/) api.
-The `frontend` folder is a [angular](angular.io) app, that visualizes the contents of the api.
+The `frontend` folder is a [angular](https://angular.io) app, that visualizes the contents of the api.
 
 ## Run
 
